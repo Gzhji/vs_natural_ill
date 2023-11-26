@@ -1,0 +1,12 @@
+
+
+<shape type="sphere" id="mirrorsphere">
+    <transform name="to_world">
+        <scale value="0.5"/>
+        <translate x=" 0" y=" 0" z=" 0"/>
+    </transform>
+    <ref id="white"/>
+    <emitter type="area">
+        <rgb name="radiance" value="18.387, 13.9873, 6.75357"/>
+    </emitter>
+</shape>

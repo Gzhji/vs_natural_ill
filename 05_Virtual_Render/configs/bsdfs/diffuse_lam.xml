@@ -1,0 +1,6 @@
+<bsdf type="diffuse">
+    		<boolean name="flipNormals" value="true"/>
+    <texture type="checkerboard" name="reflectance">
+<float name="uvscale" value="6"/>
+</texture>
+</bsdf>

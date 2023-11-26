@@ -1,0 +1,8 @@
+<bsdf type="mask">
+    <bsdf type="diffuse">
+        <rgb name="reflectance" value="0, 0, 0"/>
+    </bsdf>
+    <texture name="opacity" type="bitmap">
+        <string name="filename" value="$texture" />
+    </texture>
+</bsdf>

@@ -1,0 +1,6 @@
+<bsdf type="difftrans">
+    <boolean name="ensureEnergyConservation" value="false"/>
+    <texture type="bitmap" name="transmittance">
+        <string name="filename" value="$texture"/>
+    </texture>
+</bsdf>

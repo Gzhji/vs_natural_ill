@@ -1,0 +1,5 @@
+<bsdf type="difftrans">
+    <texture type="bitmap" name="transmittance">
+        <string name="filename" value="$texture"/>
+    </texture>
+</bsdf>

@@ -1,0 +1,6 @@
+<transform name="to_world">
+    <scale value="0.25"/>
+    <scale z="1"/>
+    <translate x="-0.6" y="-0.2" z="-1.5"/>
+    <rotate z="1" angle="180"/>
+</transform>

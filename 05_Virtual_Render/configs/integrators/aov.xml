@@ -1,0 +1,4 @@
+<integrator type="aov">
+    <string name="aovs" value="dd.y:depth,nn:sh_normal"/>
+    <integrator type="path" />
+</integrator>

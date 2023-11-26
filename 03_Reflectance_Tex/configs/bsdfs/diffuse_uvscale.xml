@@ -1,0 +1,7 @@
+<bsdf type="diffuse">
+    <texture name="reflectance" type="bitmap">
+        <string name="filename" value="$texture"/>
+        <float name="uscale" value="$uvscale"/>
+        <float name="vscale" value="$uvscale"/>
+    </texture>
+</bsdf>

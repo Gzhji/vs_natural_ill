@@ -1,0 +1,6 @@
+<bsdf type="mask">
+    <spectrum name="opacity" value="1"/>
+    <bsdf type="diffuse">
+        <spectrum name="reflectance" value="0"/>
+    </bsdf>
+</bsdf>

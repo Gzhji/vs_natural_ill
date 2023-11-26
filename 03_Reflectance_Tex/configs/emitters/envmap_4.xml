@@ -1,0 +1,21 @@
+<emitter type="envmap">
+    <string name="filename" value="$texture"/>
+        <transform name="toWorld">
+<!--            <rotate angle="30" y="1"/>-->
+<!--            <rotate angle="-30" y="1"/>-->
+
+<!--            <rotate angle="50" z="1"/>-->
+
+            <scale x="-1" y="-1"/>
+            <rotate angle="-90" x="1"/>
+
+         <rotate x="1" angle="-20"/>
+         <rotate z="1" angle="-270"/>
+
+<!--            <rotate x="1" angle="-30"/>-->
+<!--            <rotate angle="-30" z="1"/>-->
+<!--            <rotate angle="30" y="-1"/>-->
+<!--            <rotate angle="30" x="1"/>-->
+        </transform>
+
+</emitter>

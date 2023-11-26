@@ -1,0 +1,4 @@
+<emitter type="directional">
+    <vector name="direction" x="$sundirx" y="$sundiry" z="$sundirz" />
+    <spectrum name="irradiance" value="1"/>
+</emitter>

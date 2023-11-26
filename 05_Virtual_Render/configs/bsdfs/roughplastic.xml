@@ -1,0 +1,7 @@
+<bsdf type="roughplastic">
+    <string name="material" value="none"/>
+    <float name="alpha" value="$roughness"/>
+    <texture name="diffuseReflectance" type="bitmap">
+        <string name="filename" value="$texture"/>
+    </texture>
+</bsdf>

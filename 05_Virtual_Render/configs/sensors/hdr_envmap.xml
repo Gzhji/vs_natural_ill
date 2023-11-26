@@ -1,0 +1,21 @@
+<sensor type="spherical">
+	<sampler type="independent">
+		<integer name="sample_count" value="$samples"/>
+	</sampler>
+	<film type="hdrfilm">
+		<string name="pixel_format" value="rgba"/>
+		<integer name="width" value="$width"/>
+		<integer name="height" value="$height"/>
+		<boolean name="banner" value="false"/>
+		<rfilter type="gaussian" >
+		    <float name="stddev" value="1"/>
+		</rfilter>
+	</film>
+	<transform name="to_world">
+        <scale x="-1" y="-1"/>
+        <rotate x="1" angle="-90"/>
+		<translate x="0" y="0" z="0" />
+    </transform>
+</sensor>
+
+

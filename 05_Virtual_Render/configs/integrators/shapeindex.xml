@@ -1,0 +1,6 @@
+<integrator type="multichannel">
+    <integrator type="field">
+        <string name="field" value="shapeIndex"/>
+        <float name="undefined" value="$undefined"/>
+    </integrator>
+</integrator>

@@ -1,0 +1,5 @@
+<integrator type="field">
+    <boolean name="hideEmitters" value="true"/>
+    <string name="field" value="albedo"/>
+</integrator>
+

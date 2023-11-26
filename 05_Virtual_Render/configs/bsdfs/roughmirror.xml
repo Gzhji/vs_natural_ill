@@ -1,0 +1,4 @@
+<bsdf type="roughconductor">
+    <string name="material" value="none"/>
+    <float name="alpha" value="$roughness"/>
+</bsdf>

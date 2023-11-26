@@ -1,0 +1,3 @@
+<integrator type="path">
+    <boolean name="hideEmitters" value="false"/>
+</integrator>

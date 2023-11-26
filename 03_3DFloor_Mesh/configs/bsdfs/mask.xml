@@ -1,0 +1,10 @@
+<bsdf type="mask">
+    <boolean name="ensureEnergyConservation" value="false"/>
+    <bsdf type="diffuse">
+        <boolean name="ensureEnergyConservation" value="false"/>
+        <spectrum name="reflectance" value="0"/>
+    </bsdf>
+    <texture name="opacity" type="bitmap">
+        <string name="filename" value="$texture" />
+    </texture>
+</bsdf>

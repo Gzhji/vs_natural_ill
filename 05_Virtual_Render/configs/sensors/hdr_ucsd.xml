@@ -1,0 +1,14 @@
+<sensor type="spherical">
+	<sampler type="ldsampler">
+		<integer name="sampleCount" value="$samples"/>
+	</sampler>
+	<film type="hdrfilm">
+		<integer name="width" value="$width"/>
+		<integer name="height" value="$height"/>
+		<boolean name="banner" value="false"/>
+	</film>
+	<transform name="toWorld">
+        <scale x="-1" y="-1"/>
+        <rotate x="1" angle="-90"/>
+    </transform>
+</sensor>

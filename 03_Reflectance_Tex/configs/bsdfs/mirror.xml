@@ -1,0 +1,3 @@
+<bsdf type="conductor">
+    <string name="material" value="none"/>
+</bsdf>

@@ -1,0 +1,3 @@
+<emitter type="area">
+    <spectrum name="radiance" value="1"/>
+</emitter>

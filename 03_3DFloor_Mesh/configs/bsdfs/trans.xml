@@ -1,0 +1,4 @@
+<bsdf type="difftrans">
+    <boolean name="ensureEnergyConservation" value="false"/>
+    <spectrum name="transmittance" value="1"/>
+</bsdf>

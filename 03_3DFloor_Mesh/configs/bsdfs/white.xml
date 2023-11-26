@@ -1,0 +1,4 @@
+<bsdf type="diffuse">
+    <boolean name="ensureEnergyConservation" value="false"/>
+    <spectrum name="reflectance" value="1"/>
+</bsdf>

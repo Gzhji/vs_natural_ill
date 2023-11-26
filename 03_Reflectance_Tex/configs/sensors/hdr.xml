@@ -1,0 +1,48 @@
+<sensor type="spherical">
+	<sampler type="ldsampler">
+		<integer name="sampleCount" value="$samples"/>
+	</sampler>
+	<film type="hdrfilm">
+		<integer name="width" value="$width"/>
+		<integer name="height" value="$height"/>
+		<boolean name="banner" value="false"/>
+	</film>
+	<transform name="toWorld">
+        <scale x="-1" y="-1"/>
+        <rotate x="1" angle="-90"/>
+		<translate x="0" y="0" z="1.6" />
+    </transform>
+</sensor>
+
+
+<!--<sensor type="perspective">-->
+<!--&lt;!&ndash;	<sampler type="ldsampler">&ndash;&gt;-->
+<!--&lt;!&ndash;		<integer name="sampleCount" value="$samples"/>&ndash;&gt;-->
+<!--&lt;!&ndash;	</sampler>&ndash;&gt;-->
+<!--	    <float name="fov" value="120"/>-->
+
+<!--&lt;!&ndash;	<film type="ldrfilm">&ndash;&gt;-->
+<!--&lt;!&ndash;		<integer name="width" value="$width"/>&ndash;&gt;-->
+<!--&lt;!&ndash;		<integer name="height" value="$height"/>&ndash;&gt;-->
+<!--&lt;!&ndash;		<boolean name="banner" value="false"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <rfilter type="box" />&ndash;&gt;-->
+<!--&lt;!&ndash;	</film>&ndash;&gt;-->
+<!--	<transform name="toWorld">-->
+<!--        <scale x="-1" y="-1"/>-->
+<!--        <rotate x="1" angle="-120"/>-->
+<!--         <rotate z="1" angle="-90"/>-->
+
+<!--&lt;!&ndash;        <rotate z="1" angle="-30"/>&ndash;&gt;-->
+<!--&lt;!&ndash;<matrix value="0 -0.53 0 -1.79 0.92 0 0 8.03 0 0 0.53 0 0 0 0 1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <matrix value="0.866 0.433 0.25 -0.5 0.75 0.433 -0 -0.5 0.866"/>&ndash;&gt;-->
+<!--    </transform>-->
+
+
+<!--&lt;!&ndash;	<transform name="toWorld">&ndash;&gt;-->
+<!--&lt;!&ndash;                <rotate z="1" angle="30"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </transform>&ndash;&gt;-->
+<!--&lt;!&ndash;    <transform name="toWorld">&ndash;&gt;-->
+<!--&lt;!&ndash;        <rotate z="1" angle="30"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </transform>&ndash;&gt;-->
+<!--</sensor>-->

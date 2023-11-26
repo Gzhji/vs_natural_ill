@@ -1,0 +1,11 @@
+<bsdf type="mask">
+    <bsdf type="diffuse">
+        <texture name="reflectance" type="bitmap" >
+            <string name="filename" value="$tex"/>
+            <string name="filter_type" value="bilinear"/>
+        </texture>
+    </bsdf>
+    <texture name="opacity" type="bitmap">
+        <string name="filename" value="$texture" />
+    </texture>
+</bsdf>

@@ -1,0 +1,32 @@
+<sensor type="perspective">
+<!--	<sampler type="ldsampler">-->
+<!--		<integer name="sampleCount" value="$samples"/>-->
+<!--	</sampler>-->
+	    <float name="fov" value="90"/>
+
+<!--	<film type="ldrfilm">-->
+<!--		<integer name="width" value="$width"/>-->
+<!--		<integer name="height" value="$height"/>-->
+<!--		<boolean name="banner" value="false"/>-->
+<!--        <rfilter type="box" />-->
+<!--	</film>-->
+<!--	<transform name="toWorld">-->
+<!--        <scale x="-1" y="-1"/>-->
+<!--        <rotate x="1" angle="-90"/>-->
+<!--         <rotate x="1" angle="-30"/>-->
+<!--         <rotate z="1" angle="-60"/>-->
+
+<!--&lt;!&ndash;        <rotate z="1" angle="-30"/>&ndash;&gt;-->
+<!--&lt;!&ndash;<matrix value="0 -0.53 0 -1.79 0.92 0 0 8.03 0 0 0.53 0 0 0 0 1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <matrix value="0.866 0.433 0.25 -0.5 0.75 0.433 -0 -0.5 0.866"/>&ndash;&gt;-->
+<!--    </transform>-->
+
+
+<!--	<transform name="toWorld">-->
+<!--                <rotate z="1" angle="30"/>-->
+
+<!--    </transform>-->
+<!--    <transform name="toWorld">-->
+<!--        <rotate z="1" angle="30"/>-->
+<!--    </transform>-->
+</sensor>

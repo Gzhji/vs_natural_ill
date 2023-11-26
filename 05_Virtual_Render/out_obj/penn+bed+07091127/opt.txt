@@ -1,0 +1,13 @@
+{
+  "house": "penn",
+  "floor": "bed",
+  "pano": "07091127",
+  "log": "out_obj/penn+bed+07091127",
+  "cache": "obj_cache/penn+bed+07091127",
+  "layout_path": "../00_Data/zind/scenes/layout_merge",
+  "height": 256,
+  "mask_samples": 256,
+  "tex_res": 128,
+  "hdr2ldr_ratio": 5,
+  "obj_msk_ratio": 100
+}

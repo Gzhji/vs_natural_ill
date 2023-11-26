@@ -1,0 +1,7 @@
+<bsdf type="diffuse">
+    <texture name="reflectance" type="bitmap" >
+        <string name="filename" value="$tex"/>
+        <string name="filter_type" value="bilinear"/>
+    </texture>
+<!--    <rgb name="reflectance" value="0.3223, 0.1395, 0.0324"/>-->
+</bsdf>

@@ -1,0 +1,3 @@
+<emitter type="envmap">
+    <string name="filename" value="$texture"/>
+</emitter>

@@ -1,0 +1,3 @@
+<bsdf type="difftrans">
+    <spectrum name="transmittance" value="1"/>
+</bsdf>

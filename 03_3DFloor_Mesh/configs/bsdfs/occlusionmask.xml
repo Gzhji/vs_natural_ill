@@ -1,0 +1,8 @@
+<bsdf type="mask">
+    <boolean name="ensureEnergyConservation" value="false"/>
+    <spectrum name="opacity" value="1"/>
+    <bsdf type="diffuse">
+        <boolean name="ensureEnergyConservation" value="false"/>
+        <spectrum name="reflectance" value="0"/>
+    </bsdf>
+</bsdf>

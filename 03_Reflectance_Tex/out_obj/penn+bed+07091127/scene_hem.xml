@@ -1,0 +1,91 @@
+<scene version="3.0.0">
+    <sensor type="spherical">
+        <sampler type="independent">
+            <integer name="sample_count" value="256"/>
+        </sampler>
+        <film type="hdrfilm">
+            <string name="pixel_format" value="rgba"/>
+            <integer name="width" value="1024"/>
+            <integer name="height" value="512"/>
+            <boolean name="banner" value="false"/>
+            <rfilter type="gaussian">
+                <float name="stddev" value="1"/>
+            </rfilter>
+        </film>
+        <transform name="to_world">
+            <scale x="-1" y="-1"/>
+            <rotate x="1" angle="-90"/>
+            <translate x="0" y="0" z="0"/>
+        </transform>
+    </sensor>
+    <integrator type="aov">
+        <string name="aovs" value="dd.y:depth,nn:sh_normal"/>
+        <integrator type="path"/>
+    </integrator>
+    <shape type="obj">
+        <string name="filename" value="../00_Data/zind/scenes/floormesh/penn+bed+07091127/tex_floor.obj"/>
+        <transform name="to_world">
+            <translate x="0" y="0" z="-1.6"/>
+            <rotate z="1" angle="180"/>
+        </transform>
+        <bsdf type="diffuse">
+            <spectrum name="reflectance" value="0.8"/>
+        </bsdf>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="../00_Data/zind/scenes/floormesh/penn+bed+07091127/tex_ceiling.obj"/>
+        <transform name="to_world">
+            <translate x="0" y="0" z="-1.6"/>
+            <rotate z="1" angle="180"/>
+        </transform>
+        <bsdf type="diffuse">
+            <spectrum name="reflectance" value="0.8"/>
+        </bsdf>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="obj_cache/penn+bed+07091127/ambi_wall_mesh_rt.obj"/>
+        <transform name="to_world">
+            <translate x="0" y="0" z="-1.6"/>
+            <rotate z="1" angle="180"/>
+            <translate x="0" y="0" z="0"/>
+        </transform>
+        <bsdf type="mask">
+            <bsdf type="diffuse">
+                <spectrum name="reflectance" value="1"/>
+            </bsdf>
+            <texture name="opacity" type="bitmap">
+                <string name="filename" value="out_obj/penn+bed+07091127/1_win_mask_tex_img.png"/>
+            </texture>
+        </bsdf>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="obj_cache/penn+bed+07091127/3_bright_rt_wall_mesh.obj"/>
+        <transform name="to_world">
+            <translate x="0" y="0" z="-1.6"/>
+            <rotate z="1" angle="180"/>
+            <translate x="0.0" y="0.2" z="0.0"/>
+        </transform>
+        <bsdf type="mask">
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0, 0, 0"/>
+            </bsdf>
+            <texture name="opacity" type="bitmap">
+                <string name="filename" value="obj_cache/penn+bed+07091127/3_bright_wall_tex_mask.png"/>
+            </texture>
+        </bsdf>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="../00_Data/zind/scenes/floormesh/hem_orig.obj"/>
+        <transform name="to_world">
+            <scale value="1"/>
+            <rotate x="1" angle="90"/>
+            <translate x="1" y="-2" z="0"/>
+        </transform>
+        <emitter type="area">
+            <texture name="radiance" type="bitmap">
+                <string name="filename" value="../00_Data/zind/scenes/env_map/penn+bed+07091127.hdr"/>
+            </texture>
+        </emitter>
+    </shape>
+</scene>
+

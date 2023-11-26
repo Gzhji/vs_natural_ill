@@ -1,0 +1,4 @@
+<!--<integrator type="volpath">-->
+<integrator type="ptracer">
+    <integer name="max_depth" value="$maxd"/>
+</integrator>

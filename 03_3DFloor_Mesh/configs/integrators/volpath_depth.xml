@@ -1,0 +1,4 @@
+<integrator type="volpath">
+    <boolean name="hideEmitters" value="false"/>
+    <integer name="maxDepth" value="$maxd"/>
+</integrator>

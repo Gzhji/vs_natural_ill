@@ -1,0 +1,3 @@
+<integrator type="volpath">
+    <integer name="max_depth" value="$maxd"/>
+</integrator>

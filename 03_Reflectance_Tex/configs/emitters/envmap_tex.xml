@@ -1,0 +1,7 @@
+<emitter type="area">
+    <texture name="radiance" type="bitmap">
+        <string name="filename" value="$texture"/>
+    </texture>
+</emitter>
+
+

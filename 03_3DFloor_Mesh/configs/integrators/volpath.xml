@@ -1,0 +1,3 @@
+<integrator type="volpath">
+    <boolean name="hideEmitters" value="false"/>
+</integrator>

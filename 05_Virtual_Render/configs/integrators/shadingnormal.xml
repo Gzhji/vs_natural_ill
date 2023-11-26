@@ -1,0 +1,8 @@
+
+<integrator type="multichannel">
+<integrator type="field">
+    <boolean name="hideEmitters" value="true"/>
+    <string name="field" value="shNormal"/>
+    <float name="undefined" value="0"/>
+</integrator>
+</integrator>

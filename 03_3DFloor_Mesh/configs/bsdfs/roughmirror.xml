@@ -1,0 +1,5 @@
+<bsdf type="roughconductor">
+    <boolean name="ensureEnergyConservation" value="false"/>
+    <string name="material" value="none"/>
+    <float name="alpha" value="$roughness"/>
+</bsdf>

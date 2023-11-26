@@ -1,0 +1,4 @@
+<bsdf type="conductor">
+    <boolean name="ensureEnergyConservation" value="false"/>
+    <string name="material" value="none"/>
+</bsdf>
