@@ -1,0 +1,17 @@
+newmtl desk01_mat
+Ni 1.45
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal desk01/desk01_mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness desk01/desk01_mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 0.0
+map_Pm desk01/desk01_mat_metallic.png
+Ns 16
+map_Kd desk01/desk01_mat_baseColor.png

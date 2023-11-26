@@ -1,0 +1,19 @@
+newmtl material_0
+Ni 1.6
+Ka 0 0 0
+Pm 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness AdobeStock_317764120_shelf_STTWFC3/shelf_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 0.0
+Ns 16
+map_Kd AdobeStock_317764120_shelf_STTWFC3/shelf_Mat_baseColor.png
+
+
+

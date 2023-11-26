@@ -1,0 +1,7 @@
+# Created by Open3D
+# object name: tex_wall
+newmtl tex_wall
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Kd tex_wall.png
