@@ -20,7 +20,7 @@ See [3D Layout](https://github.com/Gzhji/vs_natural_ill/tree/main/03_3DFloor_Mes
 See [Texture Preparation](https://github.com/Gzhji/vs_natural_ill/tree/main/03_Reflectance_Tex)
 
 ## Virtual Staging
-See [detailed implementation]([https://github.com/Gzhji/vs_natural_ill/tree/main/01_HDR_Calibration](https://github.com/Gzhji/vs_natural_ill/tree/main/05_Virtual_Render)) 
+See [detailed implementation](https://github.com/Gzhji/vs_natural_ill/tree/main/05_Virtual_Render)
 
 
 ## BibTeX
