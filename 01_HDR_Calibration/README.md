@@ -19,7 +19,7 @@ Using radiance command: *pcomb -e "ro=ri(1)/ri(2);go=gi(1)/gi(2);bo=bi(1)/bi(2)"
 The *image_out.hdr* needs to be cropped into square image. 
 
 ### 02 Equidistant Correction
-To transform the picture from angular fish eye to hemispherical fish eye, Using radiance command:
+To transform the picture from angular fish eye to hemispherical fish eye, using radiance command:
 *pinterp -vf image_out.hdr -vth –x (aliasx) –y (aliasy) -ff image_out.hdr 1 > image_out_equ.hdr*
 
 ### 03 Color Correction
