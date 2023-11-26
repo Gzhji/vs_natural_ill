@@ -1,2 +1,1 @@
-# vs_natural_ill
-virtual home staging code
+# Indoor - Outdoor HDR Calibration
