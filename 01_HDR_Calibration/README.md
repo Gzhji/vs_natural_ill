@@ -25,4 +25,10 @@ To transform the picture from angular fish eye to hemispherical fish eye, Using 
 ### 03 Color Correction
 Copy *image_out_equ.hdr* into '03_Color_Correction' folder, and run python file *correct_Color.py*.
 
-The export file after color correction is 'image_out_equ_GTccm.hdr'.
+The export file after color correction is *image_out_equ_GTccm.hdr*.
+
+### 04 Calibrate Outdoor HDR
+Copy the *'image_out_equ_GTccm.hdr'* into '04_Calibrate_Outdoor_HDR' folder, and run python file *linear_scale_hdr.py*.
+This step requires *indoor_displayed_L* (the value displayed in the original HDR before calirbation) and *indoor_measured_L* (absolute value measured by luminance meter) from indoor panorama.
+
+The export file is *image_out_equ_GTccm_cali.hdr*
