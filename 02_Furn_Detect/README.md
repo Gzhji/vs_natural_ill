@@ -15,4 +15,8 @@ To highlight the furniture objects, run *python pano_furn_seg.py --task='sem2bin
 
 The 2D perspective images will be saved into folder "1_Output_binary"
 
+## Stitching 2D Binarization Images to Panorama
+To highlight the furniture objects, run *python pano_furn_seg.py --task='pers2equ'*
+
+The panoramic furniture mask named '6_all_together.jpg' will be saved into folder "1_Output_seg".
 
