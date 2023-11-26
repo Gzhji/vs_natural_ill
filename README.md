@@ -4,7 +4,7 @@ This repository includes source code for the oral presentation paper ["Virtual H
 
 ![teaser image](furn2furn.gif)
 
-## Indoor-Outdoor HDR Photography
+## [Indoor-Outdoor HDR Photography](https://arxiv.org/abs/2311.12265)
 
 
 ## Furniture Detection and Removal
