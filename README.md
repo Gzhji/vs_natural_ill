@@ -5,7 +5,7 @@ This repository includes source code for the oral presentation paper ["Virtual H
 ![teaser image](furn2furn.gif)
 
 ## Indoor-Outdoor HDR Photography
-See [detailed implementation](https://github.com/Gzhji/vs_natural_ill/tree/main/01_HDR_Calibration) 
+See [HDR Calibration](https://github.com/Gzhji/vs_natural_ill/tree/main/01_HDR_Calibration) 
 
 ## Furniture Detection and Removal
 See [Furniture Detection](https://github.com/Gzhji/vs_natural_ill/tree/main/02_Furn_Detect) 
@@ -20,7 +20,7 @@ See [3D Layout](https://github.com/Gzhji/vs_natural_ill/tree/main/03_3DFloor_Mes
 See [Texture Preparation](https://github.com/Gzhji/vs_natural_ill/tree/main/03_Reflectance_Tex)
 
 ## Virtual Staging
-See [detailed implementation](https://github.com/Gzhji/vs_natural_ill/tree/main/05_Virtual_Render)
+See [Rendering Pipeline](https://github.com/Gzhji/vs_natural_ill/tree/main/05_Virtual_Render)
 
 
 ## BibTeX
