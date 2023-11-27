@@ -5,7 +5,7 @@ Please install [Radiance](https://github.com/LBNL-ETA/Radiance/releases) for thi
 
 ## Indoor HDR Calibration
 The photometric calibration for indoor HDR panorama follows the per-pixel calibration in [hdrscope](https://courses.washington.edu/hdrscope/index.html).
-The measured absolute luminance will be used to linearly scale each HDR image.
+The measured absolute luminance (from the center circle of white reference board) will be used to linearly scale each HDR image.
 
 
 ## Outdoor HDR Calibration
