@@ -128,20 +128,7 @@ if __name__ == '__main__':
     line_path = args.line_path
     process_mode = args.process_mode
 
-    # sem_path = 'img/front.png'
-    # line_path = 'img/front-0.74.png'
-    # process_mode = 'cube'
-    #process_mode = 'broken_win'
-
-    # if process_mode == 'pano':
-    #    sem_path = 'img/04_left.png'
-
     if process_mode == 'cube':
-
-        # #mode = 'regular'
-        # mode = 'window' #window_on_the_door
-        # door_pos = 'upper'
-        # biggest_door = 'yes'
 
         sem_img = cv2.imread(sem_path, cv2.IMREAD_GRAYSCALE)
         line_img = cv2.imread(line_path, cv2.IMREAD_GRAYSCALE)
@@ -151,13 +138,9 @@ if __name__ == '__main__':
         line_img = resize(line_img, height=h, width=w)
         door_win = base_img.copy()
 
-        #get window
+        #get window pixel
         base_img[sem_img == 230] = 255
         base_img[sem_img == 64] = 255
-        # if mode == 'window_on_the_door':
-        #     door_win[sem_img == 157] = 255
-        #     door_win = Find_Biggest_ConTour(door_win)
-        #     base_img = base_img + door_win
 
         base_img = cv2.rectangle(base_img, (0, 0), (w, h), (0,0,0), 80)
         cv2.imwrite('01_wind.png', base_img)
@@ -171,17 +154,6 @@ if __name__ == '__main__':
         #get frame
         base_img[line_img == 38] = 0
         cv2.imwrite('01_frame.png', base_img)
-
-        # line_img = cv2.rectangle(line_img, (0, 0), (w, h), 38, 30)
-        # win_constraint = Find_Biggest_ConTour(line_img)
-        #
-        # base_img[win_constraint == 255] = 0
-        # cv2.imwrite('01_win.png', base_img)
-        #
-        # win_constraint = 255 - win_constraint
-        # win_constraint = cv2.rectangle(win_constraint, (0, 0), (w, h), 0, 80)
-        # cv2.imwrite('01_win_constraint.png', win_constraint)
-
 
 
     if process_mode == 'broken_win':
