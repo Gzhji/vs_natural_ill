@@ -1,22 +1,13 @@
-## Panoramic Furniture Detection
-Original code, converting equirectangular panorama into 2D perspective view, is developed by Fu-En Wang.
-[Original Code](https://github.com/fuenwang/Equirec2Perspec)
+## Texture Preparation 
 
-### 01 Perspective Segmentation from Panorama to 2D Perspective Images
-run *python pano_furn_seg.py --task='equ2pers'*
+When the file split name is 'new+penn+bed+07091127', run *python render_shading.py --house='penn' --floor='bed' --pano='07091127' --height=512*
 
-The 2D perspective images will be saved into folder "1_Output_seg"
+The complete reflectance layer will be exported into folder 'out_obj' and named as 'color.jpg'
 
-### 02 Semantic Segmentation for 2D Images
-Implementing [Semantic Segmentation on MIT ADE20K dataset in PyTorch](https://github.com/CSAILVision/semantic-segmentation-pytorch) and run semantic segmentation for all images. Then, copying semantic images into folder "1_Output_seg_sem".
+Copy the latest 'color.jpg' file into folder '/00_Data/zind/scenes/layout_merge' and replace the existing file.
 
-### 03 Binarization for Semantic Images
-To highlight the furniture objects, run *python pano_furn_seg.py --task='sem2binary'*
+Go to folder [03_3DFloor_Mesh](https://github.com/Gzhji/vs_natural_ill/tree/main/03_3DFloor_Mesh) and run floormesh.py --split='new+penn+bed+07091127'
 
-The 2D perspective images will be saved into folder "1_Output_binary"
-
-### 04 Stitching 2D Binarization Images to Panorama
-To highlight the furniture objects, run *python pano_furn_seg.py --task='pers2equ'*
-
-The panoramic furniture mask named '6_all_together.jpg' will be saved into folder "1_Output_seg".
+The planar surfaces (from the reflectance layer) will be generated and the results will be exported into the folder '/00_Data/zind/scenes/floormesh'.
+ 
 
