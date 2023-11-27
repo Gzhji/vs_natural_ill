@@ -256,6 +256,10 @@ if __name__ == '__main__':
     print('rendering obj mask is done')
 
 
+    """
+    step 3 - post processing for floor texture
+    """
+    
     # import images
     render_img = concate_scene
     obj_mask = cv2.imread(f'{opt.log}/obj_mask.png', 0)
