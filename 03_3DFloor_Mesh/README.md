@@ -1,22 +1,7 @@
-## Panoramic Furniture Detection
-Please implement [semantic segmentation](https://github.com/CSAILVision/semantic-segmentation-pytorch) and [line detection](https://github.com/zhou13/lcnn). 
+###3D Layout Estimation ut from 2D Panorama  
 
-### 01 Data Preparation 
-Place a panorama image under folder 'panorama', and run *panorama2cube.py --task='panorama'*
+Please use [LED2-Net](https://github.com/fuenwang/LED2-Net) to estimate 3D layout.
+Place the output image (color.jpg) and JSON file into one folder named by the scene name (eg.'new+penn+bed+07091127') and place folder under folder '/00_Data/zind/scenes/layout_merge'.
 
-The cubic images are saved into folder 'pano_output'.
+To get segmented indoor planar surfaces, *Run floormesh.py --split='new+penn+bed+07091127'*
 
-Using the front.jpg (.png) for [window segmentation](https://github.com/CSAILVision/semantic-segmentation-pytorch) for window area and [line detection](https://github.com/zhou13/lcnn) for window frame. 
-
-Place the output images from two models into folder 'img'.
-
-### 02 Generate Window Mask
-run *win_frame.py --sem_path='img/front.png' --line_path='img/front-0.84.png' --process_mode='cube'* 
-
-The export image is '01_frame.png'.
-
-Copy '01_frame.png' into folder 'pano_output' and rename it as 'front.png'
-
-Run *panorama2cube.py --task='cube'*
-
-The export image is under folder 'output' and named 'cube_output.png'.
