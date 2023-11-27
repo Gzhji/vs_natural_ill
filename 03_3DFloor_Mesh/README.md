@@ -6,3 +6,5 @@ Place the output image (color.jpg) and JSON file into one folder named by the sc
 
 To get segmented indoor planar surfaces, *Run floormesh.py --split='new+penn+bed+07091127'*
 
+The results will be exported into the folder '/00_Data/zind/scenes/floormesh'.
+
