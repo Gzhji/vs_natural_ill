@@ -26,10 +26,11 @@ See [Rendering Pipeline](https://github.com/Gzhji/vs_natural_ill/tree/main/05_Vi
 ## BibTeX
 ```
 @inproceedings{ji2023virtual,
-    title     = {Virtual Home Staging: Inverse Rendering and Editing an Indoor Panorama under Natural Illumination},
-    author    = {Ji, Guanzhou and Sawyer, Azadeh 0. and Narasimhan, Srinivasa G.},
-    booktitle = {Proceedings of the International Symposium on Visual Computing},
-    month     = {Oct.},
-    year      = {2023},
+  title={Virtual Home Staging: Inverse Rendering and Editing an Indoor Panorama under Natural Illumination},
+  author={Ji, Guanzhou and Sawyer, Azadeh O and Narasimhan, Srinivasa G},
+  booktitle={International Symposium on Visual Computing},
+  pages={329--342},
+  year={2023},
+  organization={Springer}
 }
 ```
