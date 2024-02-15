@@ -112,6 +112,12 @@ def build_arch(opt, house_id, floor_id, pano_id, mesh_id, bsdf_id, position=None
         bsdf = parse_xml('configs/bsdfs/diffuse.xml', texture=texture)
     elif bsdf_id == 'diffuse_uvscale':
         bsdf = parse_xml('configs/bsdfs/diffuse_uvscale.xml', texture=texture, uvscale=uvscale)
+
+    elif bsdf_id == 'radiance_emitter':
+        bsdf = parse_xml('configs/emitters/radiance.xml', tex=surface_tex)
+    elif bsdf_id == 'dielectric':
+        bsdf = parse_xml('configs/bsdfs/dielectric.xml', tex=surface_tex)
+
     if bsdf_id is not None:
         mesh.append(bsdf)
     return mesh
@@ -278,4 +284,93 @@ def render_obj_mask(opt, envmap_hdr_path, bright_wall_tex, wall_mesh_dir,
         add_furns(opt, scene, furn_bsdf)
 
     xml = write_mitsuba(opt, scene, xml_fname='scene_obj')
+    return xml
+
+def wall_plane(opt, wall_bsdf='radiance_emitter', wall_tex = None, maxd=8, samples = 16):
+    scene = parse_xml('configs/scenes/scene3.0.xml')
+    scene.append(parse_xml('configs/sensors/hdr_envmap.xml', height=opt.height, width=opt.height * 2, samples=samples))
+    scene.append(parse_xml('configs/integrators/volpath.xml', maxd=maxd))
+    scene.append(build_arch(opt, opt.house, opt.floor, opt.pano, 'tex_wall', wall_bsdf, surface_tex=wall_tex))
+    xml = write_mitsuba(opt, scene, xml_fname='wall_plane')
+    return xml
+
+def floor_plane(opt, floor_bsdf='radiance_emitter', floor_tex = None, maxd=8, samples = 16):
+    scene = parse_xml('configs/scenes/scene3.0.xml')
+    scene.append(parse_xml('configs/sensors/hdr_envmap.xml', height=opt.height, width=opt.height * 2, samples=samples))
+    scene.append(parse_xml('configs/integrators/volpath.xml', maxd=maxd))
+    scene.append(build_arch(opt, opt.house, opt.floor, opt.pano, 'tex_floor', floor_bsdf, surface_tex=floor_tex))
+    xml = write_mitsuba(opt, scene, xml_fname='floor_plane')
+    return xml
+
+def render_facade(opt, wall_mesh_dir, maxd=None, samples = 16):
+
+    scene = parse_xml('configs/scenes/scene3.0.xml')
+    scene.append(parse_xml('configs/sensors/hdr_envmap_new_camera.xml', height=opt.height, width=opt.height * 2, samples=samples
+                           , x=opt.camera_x, y=opt.camera_y, z=opt.camera_z))
+    scene.append(parse_xml('configs/integrators/volpath_depth.xml', maxd=maxd))
+
+    mesh = ET.Element('shape')
+    mesh.set('type', 'obj')
+    mesh.append(parse_xml(f'<string name="filename" value="{wall_mesh_dir}.obj"/>'))
+    transform = parse_xml(f'configs/transform/toworld.xml')
+    mesh.append(transform)
+    bsdf = parse_xml('configs/emitters/radiance.xml')
+    mesh.append(bsdf)
+
+    scene.append(mesh)
+    xml = write_mitsuba(opt, scene, xml_fname='facade_plane')
+    return xml
+
+
+def render_night(opt, envmap_hdr_path, wall_mesh_dir,
+                      bright_rt_wall_mesh_dir, dark_rt_wall_mesh_dir, furn=True, maxd=None,
+                      floor_bsdf='white', wall_bsdf='white', ceil_bsdf='white', furn_bsdf='full',
+                      floor_tex = None, wall_tex = None, ceil_tex = None,
+                      samples = 16, wall_extend = True, factor=20, retreat=False):
+
+    scene = parse_xml('configs/scenes/scene3.0.xml')
+    scene.append(parse_xml('configs/sensors/hdr_envmap.xml', height=opt.height, width=opt.height * 2, samples=samples))
+    if maxd is None:
+        scene.append(parse_xml('configs/integrators/volpath.xml'))
+    else:
+        scene.append(parse_xml('configs/integrators/volpath_depth.xml', maxd=maxd))
+    #
+    scene.append(build_arch(opt, opt.house, opt.floor, opt.pano, 'tex_floor', floor_bsdf, surface_tex= floor_tex))
+    scene.append(build_arch(opt, opt.house, opt.floor, opt.pano, 'tex_ceiling', ceil_bsdf, surface_tex = ceil_tex))
+    scene.append(build_arch(opt, None, None, None, None, 'mask', mesh_dir= wall_mesh_dir, surface_tex = wall_tex,
+                            position=np.array([0, 0, 0]), texture=f'../03_Reflectance_Tex/{opt.log}/1_win_mask_tex_img.png'))
+
+    if wall_extend:
+        scene.append(build_arch(opt, None, None, None, None, 'mask_r',
+                                mesh_dir = f'../03_Reflectance_Tex/{opt.cache}/3_bright_rt_wall_mesh', surface_tex=wall_tex,
+                                position=np.array([0, 0.05, 0]), texture=f'../03_Reflectance_Tex/{opt.cache}/3_bright_wall_tex_mask.png'))
+
+    """
+    add the lamp cover
+    """
+    mesh = ET.Element('shape')
+    mesh.set('type', 'obj')
+    mesh.append(parse_xml(f'<string name="filename" value="render_night/lamp_cover.obj"/>'))
+    bsdf = parse_xml('configs/bsdfs/diffuse_low.xml')
+    mesh.append(bsdf)
+    transform = parse_xml(f'configs/transform/toworld_lamp.xml', x=opt.lamp_x, y=opt.lamp_y, z=opt.lamp_z)
+    mesh.append(transform)
+    scene.append(mesh)
+
+    """
+    add the lamp cover
+    """
+    mesh = ET.Element('shape')
+    mesh.set('type', 'obj')
+    mesh.append(parse_xml(f'<string name="filename" value="render_night/lamp_buld.obj"/>'))
+    emitter = parse_xml(f'configs/emitters/spd_emitter.xml', spd=opt.spd_file_path)
+    mesh.append(emitter)
+    transform = parse_xml(f'configs/transform/toworld_lamp.xml', x=opt.lamp_x, y=opt.lamp_y, z=opt.lamp_z)
+    mesh.append(transform)
+    scene.append(mesh)
+
+    if furn:
+        add_furns(opt, scene, furn_bsdf)
+
+    xml = write_mitsuba(opt, scene, xml_fname='scene_night')
     return xml
