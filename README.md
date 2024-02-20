@@ -22,6 +22,8 @@ See [Texture Preparation](https://github.com/Gzhji/vs_natural_ill/tree/main/03_R
 ## Virtual Staging
 See [Rendering Pipeline](https://github.com/Gzhji/vs_natural_ill/tree/main/05_Virtual_Render)
 
+## Editing Sun Positions
+See [Here](https://github.com/Gzhji/edit_outdoor_sun_position)
 
 ## BibTeX
 ```
