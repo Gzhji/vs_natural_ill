@@ -19,6 +19,8 @@ See [3D Layout](https://github.com/Gzhji/vs_natural_ill/tree/main/03_3DFloor_Mes
 
 See [Texture Preparation](https://github.com/Gzhji/vs_natural_ill/tree/main/03_Reflectance_Tex)
 
+See [Furniture Placement](https://github.com/Gzhji/vs_natural_ill/tree/main/04_Furn_Layout)
+
 ## Virtual Staging
 See [Rendering Pipeline](https://github.com/Gzhji/vs_natural_ill/tree/main/05_Virtual_Render)
 
