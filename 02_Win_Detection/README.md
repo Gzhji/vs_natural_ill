@@ -2,7 +2,7 @@
 Please implement [semantic segmentation](https://github.com/CSAILVision/semantic-segmentation-pytorch) and [line detection](https://github.com/zhou13/lcnn). 
 
 ### 01 Data Preparation 
-Place a panorama image under folder 'panorama', and run *panorama2cube.py --task='panorama'*
+Place a panorama image under folder 'panorama', and run *python panorama2cube.py --mode='panorama'*
 
 The cubic images are saved into folder 'pano_output'.
 
