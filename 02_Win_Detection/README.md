@@ -13,10 +13,6 @@ Place the output images from two models into folder 'img'.
 ### 02 Generate Window Mask
 run *python win_frame.py --sem_path='img/front.png' --line_path='img/front-0.84.png' --process_mode='cube'* 
 
-The export image is '01_frame.png'.
-
-Copy '01_frame.png' into folder 'pano_output' and rename it as 'front.png'
-
-Run *python panorama2cube.py --task='cube'*
+run *python panorama2cube.py --task='cube'*
 
 The export image is under folder 'output' and named 'cube_output.png'.
