@@ -112,16 +112,15 @@ def Resize(img, target_h):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--house', type=str, default='penn')
-    parser.add_argument('--floor', type=str, default='bed')
-    parser.add_argument('--pano', type=str, default='07091127')
+    parser.add_argument('--house', type=str, default='coda')#coda+609+03121400
+    parser.add_argument('--floor', type=str, default='609')
+    parser.add_argument('--pano', type=str, default='03121400')
     parser.add_argument('--log', type=str, default='out_obj')
     parser.add_argument('--cache', type=str, default='obj_cache')
     parser.add_argument('--layout-path', type=str, default='../00_Data/zind/scenes/layout_merge')
-    parser.add_argument('--height', type=int, default=512)
+    parser.add_argument('--height', type=int, default=256)
     parser.add_argument('--mask_samples', type=int, default=256)
     parser.add_argument('--tex_res', type=int, default=128)
-
 
     opt = parser.parse_args()
     opt.cache = f'{opt.cache}/{opt.house}+{opt.floor}+{opt.pano}'
@@ -142,7 +141,7 @@ if __name__ == '__main__':
     print(opt)
 
     """
-    load images
+    00: load images
     """
     reader = get_reader('zind', opt.height)
     record = f'{opt.house} {opt.floor} {opt.pano}'
@@ -180,7 +179,7 @@ if __name__ == '__main__':
 
 
     """
-    0_Build tex
+    01: Build tex
     """
     # build floor wall tex
     ambi_wall_tex, ambi_floor_tex, _ = zf.build_tex(None, tex_pano=None, pano_im=rgb_i[0].permute(1, 2, 0).numpy(), res=opt.tex_res)
@@ -204,13 +203,13 @@ if __name__ == '__main__':
     save_obj(ambi_wall_mesh_dir, ambi_wall_mesh, )
 
     # build retreat mesh
-    ambi_wall_mesh_rt, _, _ = zf.build_mesh(None, None, None, wall_ids=None, retreat=True, eps=-4.5e-3)
+    ambi_wall_mesh_rt, _, _ = zf.build_mesh(None, None, None, wall_ids=None, retreat=True, eps=-4.5e-5)
     ambi_wall_mesh_rt_dir = f'{opt.cache}/ambi_wall_mesh_rt'
     save_obj(ambi_wall_mesh_rt_dir, ambi_wall_mesh_rt, )
 
 
     """
-    0_Build Wall-window Mask
+    02: Build Wall-window Mask
     """
     win_mask_tex, _, _ = zf.build_tex(None, tex_pano=None, pano_im=win_i[0].permute(1, 2, 0).numpy(), res=opt.tex_res)
     win_mask_tex = np.flip(win_mask_tex, axis=0)
@@ -226,7 +225,7 @@ if __name__ == '__main__':
 
 
     """
-    0_find bright and dark walls
+    03: find bright and dark walls
     """
     bright_wall_ids, dark_wall_ids = zf.get_wall_id_for_division(torch2np_im(win_mask_tex), 128)
     print('bright_wall_ids is:', bright_wall_ids)
@@ -250,7 +249,7 @@ if __name__ == '__main__':
 
 
     """
-    0_build obj bright and dark walls
+    04: build obj bright and dark walls
     """
     bright_wall_mesh, _, _ = zf.build_mesh(None, None, None, wall_ids=bright_wall_ids)
     dark_wall_mesh, _, _ = zf.build_mesh(None , None, None, wall_ids=dark_wall_ids)
@@ -260,7 +259,7 @@ if __name__ == '__main__':
     save_obj(dark_wall_mesh_dir, dark_wall_mesh, )
 
     '''
-    0_build obj bright and dark walls retreated
+    05: build obj bright and dark walls retreated
     '''
     bright_rt_wall_mesh, _, _ = zf.build_mesh(None, None, None, wall_ids=bright_wall_ids, retreat=True, eps=-4.5e-3)
     dark_rt_wall_mesh, _, _ = zf.build_mesh(None, None, None, wall_ids=dark_wall_ids, retreat=True, eps=-4.5e-3)
@@ -270,7 +269,7 @@ if __name__ == '__main__':
     save_obj(dark_rt_wall_mesh_dir, dark_rt_wall_mesh, )
 
     """
-    4_render light on indoor plane using env map
+    06: render light on indoor plane using env map
     """
     envmap_hdr_path = f'../00_Data/zind/scenes/env_map/{opt.house}+{opt.floor}+{opt.pano}' + '.hdr'
     floor_tex_path = f'../00_Data/zind/scenes/floormesh/{opt.house}+{opt.floor}+{opt.pano}/tex_floor.png'
@@ -303,9 +302,9 @@ if __name__ == '__main__':
 
 
     """
-    instrinsic decomposition
+    07: instrinsic decomposition
     """
-    rgb_name = 'complete_img.png'
+    rgb_name = 'complete_rgb.jpg'
     shading_name = 'shading_layer.png'
 
     # Wait for 10 seconds to ensure shading image has been saved
@@ -313,11 +312,20 @@ if __name__ == '__main__':
     rgb_img = cv2.imread(f'{opt.log}/' + rgb_name, -1)
     shading_img = cv2.imread(f'{opt.log}/' + shading_name, -1)
 
+    albedo_img = np.array(rgb_img, dtype=np.uint8)
+    shading_img = np.array(shading_img, dtype=np.uint8)
+
     if shading_img.shape[0] != rgb_img.shape[0]:
         shading_img = Resize(shading_img, rgb_img.shape[0])
 
     albedo_img = rgb_img/shading_img
-    cv2.imwrite(f'{opt.log}/' + 'color.jpg', albedo_img*255)
+    albedo_img = albedo_img * 255
+    cv2.imwrite(f'{opt.log}/' + 'albedo_img.jpg', albedo_img)
+
+    #bilaberal filter to smooth the result
+    albedo_img = np.array(albedo_img, dtype=np.float32)
+    img_bi = cv2.bilateralFilter(albedo_img, d=50, sigmaColor=15, sigmaSpace=75)
+    cv2.imwrite(f'{opt.log}/' + 'color.jpg', img_bi)
     print('albedo layer has been saved as color.jpg')
 
     #compute executive time for rendering
