@@ -68,6 +68,7 @@ class BoundingBox(object):
     """
     A 2D bounding box
     """
+    
     def __init__(self, points):
         if len(points) == 0:
             raise ValueError("Can't compute bounding box of empty list")
@@ -84,12 +85,13 @@ class BoundingBox(object):
                 self.maxx = x
             elif y > self.maxy:
                 self.maxy = y
-    @property
+
     def width(self):
         return self.maxx - self.minx
-    @property
+
     def height(self):
         return self.maxy - self.miny
+        
     def __repr__(self):
         return "BoundingBox({}, {}, {}, {})".format(
             self.minx, self.maxx, self.miny, self.maxy)
